@@ -1,3 +1,24 @@
 {
-    "数据来源": "data source"
+    "环氧": "epoxy",
+    "环氧化学式": "epoxy chemical formula",
+    "分子量": "molecular weight",
+    "固化剂": "curing agent",
+    "固化剂化学式": "curing agent chemical formula",
+    "环氧/固化剂配比": "epoxy/curing agent ratio",
+    "碳纤种类": "type of carbon fiber",
+    "碳纤维含量": "carbon fiber content",
+    "填料种类": "type of filler",
+    "填料比例": "filler proportion",
+    "促进剂": "accelerator",
+    "促进剂含量": "accelerator content",
+    "温度": "temperature",
+
+    "断裂韧性": "fracture toughness",
+    "弯曲强度": "flexural strength",
+    "弯曲模量": "flexural modulus",
+    "冲击强度": "impact strength",
+    "杨氏模量": "Young's modulus",
+    "拉伸强度": "tensile strength",
+    "剪切强度": "shear strength",
+    "断裂伸长率": "elongation at break"
 }
