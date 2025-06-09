@@ -12,8 +12,8 @@ DATA_DIR = os.path.join(ROOT_DIR, "data")
 RESULTS_DIR = os.path.join(ROOT_DIR, "results")
 
 ### Files ###
-
-
+RAW_DATA_CSV = os.path.join(DATA_DIR, "all_epoxy_data.csv")
+PREPROCESSED_DATA_CSV = os.path.join(DATA_DIR, "preprocessed_data.csv")
 
 ### Constants ###
 
