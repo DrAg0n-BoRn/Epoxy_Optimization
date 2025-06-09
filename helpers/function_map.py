@@ -46,7 +46,7 @@ def carbon_fiber_content(col: pl.Series) -> pl.Series:
     
     col_expr = (
         pl.when(parse_numbers.is_null()).then(None)
-        .when((parse_numbers > 0.0) & (parse_numbers < 1.0)).then(parse_numbers * 100)
+        # .when((parse_numbers > 0.0) & (parse_numbers < 1.0)).then(parse_numbers * 100)
         .otherwise(parse_numbers)
         .round(2)
         .alias("carbon_fiber_content(%)")
@@ -67,7 +67,7 @@ def filler_proportion(col: pl.Series) -> pl.Series:
     """
     Parse ratios, percentages and relative percentage, convert everything to percentage
     """
-    parse_ratios = col.str.extract(r'(\d+\.?\d*:\d+\.?\d*)').to_list()
+    parse_ratios = col.str.extract(r'(\d+\.?\d*\s?:\s?\d+\.?\d*)').to_list()
     
     cleaned_ratios = list()
     for result_string in parse_ratios:
@@ -75,8 +75,8 @@ def filler_proportion(col: pl.Series) -> pl.Series:
             cleaned_ratios.append(None)
         else:
             left, right = result_string.strip().split(":")
-            left = round(float(left), 2)
-            right = round(float(right), 2)
+            left = round(float(left.strip()), 2)
+            right = round(float(right.strip()), 2)
             if right == 0 and left == 0:
                 cleaned_ratios.append(None)
             elif right == 0:
@@ -94,7 +94,7 @@ def filler_proportion(col: pl.Series) -> pl.Series:
     
     polars_numbers_expr = (
         pl.when(parse_numbers.is_null()).then(None)
-        .when(parse_numbers < 1.0).then(parse_numbers * 100)
+        # .when(parse_numbers < 1.0).then(parse_numbers * 100)
         # .when(parse_numbers < 10.0).then(parse_numbers * 10)
         .otherwise(parse_numbers)
         .round(2)
@@ -129,7 +129,7 @@ def accelerator_content(col: pl.Series) -> pl.Series:
     
     col_expr = (
         pl.when(parse_numbers.is_null()).then(None)
-        .when((parse_numbers > 0.0) & (parse_numbers < 1.0)).then(parse_numbers * 100)
+        # .when((parse_numbers > 0.0) & (parse_numbers < 1.0)).then(parse_numbers * 100)
         .otherwise(parse_numbers)
         .round(2)
         .alias("accelerator_content(%)")
