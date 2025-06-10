@@ -1,5 +1,5 @@
 import polars as pl
-
+from paths import TARGETS
 
 def molecular_weight(column: pl.Series) -> pl.Series:
     """
@@ -165,56 +165,56 @@ def fracture_toughness(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("fracture_toughness(MPa*m0.5)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[0])
 
 
 def flexural_strength(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("flexural_strength(MPa)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[1])
 
 
 def flexural_modulus(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("flexural_modulus(MPa)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[2])
 
 
 def impact_strength(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("impact_strength(kJ/m2)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[3])
 
 
 def young_modulus(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("young_modulus(MPa)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[4])
 
 
 def tensile_strength(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("tensile_strength(MPa)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[5])
 
 
 def shear_strength(col: pl.Series) -> pl.Series:
     """
     extract the value from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("shear_strength(MPa)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[6])
 
 
 def elongation_break(col: pl.Series) -> pl.Series:
     """
     extract the percentage from the column
     """
-    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias("elongation_at_break(%)")
+    return col.str.extract(r"(\d+\.?\d*)").cast(pl.Float64, strict=False).round(2).alias(TARGETS[7])
 
 
 ### Distribute rules to the columns
