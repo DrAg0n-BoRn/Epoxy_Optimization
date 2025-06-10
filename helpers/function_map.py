@@ -114,7 +114,7 @@ def filler_proportion(col: pl.Series) -> pl.Series:
     return pl.select(final_expr).to_series()
 
 
-def accelerator(col: pl.Series) -> pl.Dataframe:
+def accelerator(col: pl.Series) -> pl.DataFrame:
     """
     One-hot encode categories
     """

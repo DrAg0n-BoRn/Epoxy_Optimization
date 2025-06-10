@@ -34,7 +34,7 @@ def preprocess_data() -> None:
                 raise ValueError(f"Function for '{feature_name}' did not return a Series or DataFrame.")
     
     # Special case
-    results.extend(parse_special_case(df).get_columns())
+    # results.extend(parse_special_case(df).get_columns())
     
     if results:
         # Make a new DataFrame from the results
